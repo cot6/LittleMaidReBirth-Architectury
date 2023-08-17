@@ -54,11 +54,30 @@ public class ModSetup {
     }
 
     private static boolean canSpawnBiome(BiomeModifications.BiomeContext context) {
-        return context.hasTag(BiomeTags.VILLAGE_DESERT_HAS_STRUCTURE)
-                || context.hasTag(BiomeTags.VILLAGE_PLAINS_HAS_STRUCTURE)
-                || context.hasTag(BiomeTags.VILLAGE_SAVANNA_HAS_STRUCTURE)
-                || context.hasTag(BiomeTags.VILLAGE_SNOWY_HAS_STRUCTURE)
-                || context.hasTag(BiomeTags.VILLAGE_TAIGA_HAS_STRUCTURE);
+        final var config = LMRBMod.getConfig();
+        if (config.isCanSpawnInRecommendBiomes() &&
+           (context.hasTag(BiomeTags.VILLAGE_DESERT_HAS_STRUCTURE)
+         || context.hasTag(BiomeTags.VILLAGE_PLAINS_HAS_STRUCTURE)
+         || context.hasTag(BiomeTags.VILLAGE_SAVANNA_HAS_STRUCTURE)
+         || context.hasTag(BiomeTags.VILLAGE_SNOWY_HAS_STRUCTURE)
+         || context.hasTag(BiomeTags.VILLAGE_TAIGA_HAS_STRUCTURE))) {
+            return true;
+        }
+        if (config.isCanSpawnInMountain() && context.hasTag(BiomeTags.IS_BEACH)
+         || config.isCanSpawnInMountain() && context.hasTag(BiomeTags.IS_MOUNTAIN)
+         || config.isCanSpawnInBadlands() && context.hasTag(BiomeTags.IS_BADLANDS)
+         || config.isCanSpawnInHill() && context.hasTag(BiomeTags.IS_HILL)
+         || config.isCanSpawnInTaiga() && context.hasTag(BiomeTags.IS_TAIGA)
+         || config.isCanSpawnInJungle() && context.hasTag(BiomeTags.IS_JUNGLE)
+         || config.isCanSpawnInForest() && context.hasTag(BiomeTags.IS_FOREST)
+         || config.isCanSpawnInSavanna() && context.hasTag(BiomeTags.IS_SAVANNA)) {
+            if (config.isCanSpawnOnlyInTheOverworld() && context.hasTag(BiomeTags.IS_OVERWORLD)
+             || config.isCanSpawnOnlyInTheNether() && context.hasTag(BiomeTags.IS_NETHER)
+             || config.isCanSpawnOnlyInTheEnd() && context.hasTag(BiomeTags.IS_END)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

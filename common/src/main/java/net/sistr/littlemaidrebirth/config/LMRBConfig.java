@@ -22,6 +22,42 @@ public class LMRBConfig implements ConfigData {
     private boolean canDespawn;
 
     @ConfigEntry.Category("spawn")
+    private boolean canSpawnInRecommendBiomes = true;
+
+    @ConfigEntry.Category("spawn")
+    private boolean canSpawnInBeach = false;
+
+    @ConfigEntry.Category("spawn")
+    private boolean canSpawnInMountain = false;
+
+    @ConfigEntry.Category("spawn")
+    private boolean canSpawnInBadlands = false;
+
+    @ConfigEntry.Category("spawn")
+    private boolean canSpawnInHill = false;
+
+    @ConfigEntry.Category("spawn")
+    private boolean canSpawnInTaiga = false;
+
+    @ConfigEntry.Category("spawn")
+    private boolean canSpawnInJungle = false;
+
+    @ConfigEntry.Category("spawn")
+    private boolean canSpawnInForest = false;
+
+    @ConfigEntry.Category("spawn")
+    private boolean canSpawnInSavanna = false;
+
+    @ConfigEntry.Category("spawn")
+    private boolean canSpawnOnlyInTheOverworld = true;
+
+    @ConfigEntry.Category("spawn")
+    private boolean canSpawnOnlyInTheNether = false;
+
+    @ConfigEntry.Category("spawn")
+    private boolean canSpawnOnlyInTheEnd = false;
+
+    @ConfigEntry.Category("spawn")
     private int spawnWeight = 5;
 
     @ConfigEntry.Category("spawn")
@@ -151,6 +187,54 @@ public class LMRBConfig implements ConfigData {
 
     public boolean isCanDespawn() {
         return canDespawn;
+    }
+
+    public boolean isCanSpawnInRecommendBiomes() {
+        return canSpawnInRecommendBiomes;
+    }
+
+    public boolean isCanSpawnInBeach() {
+        return canSpawnInBeach;
+    }
+
+    public boolean isCanSpawnInMountain() {
+        return canSpawnInMountain;
+    }
+
+    public boolean isCanSpawnInBadlands() {
+        return canSpawnInBadlands;
+    }
+
+    public boolean isCanSpawnInHill() {
+        return canSpawnInHill;
+    }
+
+    public boolean isCanSpawnInTaiga() {
+        return canSpawnInTaiga;
+    }
+
+    public boolean isCanSpawnInJungle() {
+        return canSpawnInJungle;
+    }
+
+    public boolean isCanSpawnInForest() {
+        return canSpawnInForest;
+    }
+
+    public boolean isCanSpawnInSavanna() {
+        return canSpawnInSavanna;
+    }
+
+    public boolean isCanSpawnOnlyInTheOverworld() {
+        return canSpawnOnlyInTheOverworld;
+    }
+
+    public boolean isCanSpawnOnlyInTheNether() {
+        return canSpawnOnlyInTheNether;
+    }
+
+    public boolean isCanSpawnOnlyInTheEnd() {
+        return canSpawnOnlyInTheEnd;
     }
 
     public int getSpawnWeight() {
